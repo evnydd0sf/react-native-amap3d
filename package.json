@@ -1,8 +1,8 @@
 {
-  "name": "react-native-amap3d",
-  "version": "0.0.0",
-  "description": "react-native 高德地图组件，支持 Android + iOS",
-  "author": "7c00 <i@7c00.cc>",
+  "name": "@evnydd0sf/react-native-amap3d-fix",
+  "version": "3.2.4-fix.1",
+  "description": "react-native 高德地图组件，支持 Android + iOS (Fork with compilation fix)",
+  "author": "evnydd0sf <me@evnydd0sf.club>",
   "license": "MIT",
   "keywords": [
     "react-native",
@@ -19,10 +19,15 @@
     "react-native.config.js",
     "react-native-amap3d.podspec"
   ],
-  "homepage": "https://github.com/qiuxiang/react-native-amap3d",
+  "homepage": "https://github.com/evnydd0sf/react-native-amap3d",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qiuxiang/react-native-amap3d"
+    "url": "https://github.com/evnydd0sf/react-native-amap3d"
+  },
+  "original": {
+    "name": "react-native-amap3d",
+    "author": "7c00 <i@7c00.cc>",
+    "repository": "https://github.com/qiuxiang/react-native-amap3d"
   },
   "scripts": {
     "start": "react-native start",

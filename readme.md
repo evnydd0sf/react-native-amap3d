@@ -1,13 +1,14 @@
-# react-native-amap3d [![][version-badge]][npm] [![](https://github.com/qiuxiang/react-native-amap3d/actions/workflows/build.yml/badge.svg)](https://github.com/qiuxiang/react-native-amap3d/actions/workflows/build.yml)
+# react-native-amap3d [![][version-badge]][npm] [![](https://github.com/evnydd0sf/react-native-amap3d/actions/workflows/build.yml/badge.svg)](https://github.com/evnydd0sf/react-native-amap3d/actions/workflows/build.yml)
 
-**注意：该项目目前只维护，不加新功能。**
+> 这是 [react-native-amap3d](https://github.com/qiuxiang/react-native-amap3d) 的 fork 版本，仅为 react-native-amap3d 修复 Xcode 编译问题而创建。
 
-react-native 高德地图组件，使用最新 3D SDK，支持 Android + iOS，受 [react-native-maps](https://github.com/airbnb/react-native-maps) 启发，提供功能丰富且易用的接口。
+## 修复内容
 
-相关项目推荐：
-
-- [react-native-baidumap-sdk（百度地图 SDK）](https://github.com/qiuxiang/react-native-baidumap-sdk)
-- [react-native-amap-geolocation（高德地图定位模块）](https://github.com/qiuxiang/react-native-amap-geolocation)
+- **修复了 iOS 编译时的链接错误问题**
+  - **问题描述**：在正式编译时出现 `ld: pointer not aligned in '_dbl_lnds_data_TileDataRespMsg_fields'` 错误
+  - **根本原因**：AMap3DMap SDK 版本兼容性问题，原 podspec 中的版本依赖导致链接器错误
+  - **解决方案**：将 `react-native-amap3d.podspec` 中的 AMap3DMap 依赖版本固定为 `10.0.1000`
+  - **测试状态**：✅ 开发调试正常 ✅ 正式编译通过
 
 ## 功能
 
@@ -27,12 +28,12 @@ react-native 高德地图组件，使用最新 3D SDK，支持 Android + iOS，�
 
 ## 接口文档
 
-https://qiuxiang.github.io/react-native-amap3d/api/
+<https://qiuxiang.github.io/react-native-amap3d/api/>
 
 ## 安装
 
 ```bash
-npm i react-native-amap3d
+npm i @evnydd0sf/react-native-amap3d
 ```
 
 ### 添加高德 API Key
@@ -45,7 +46,7 @@ npm i react-native-amap3d
 然后你需要在显示地图前调用接口设置 API key：
 
 ```js
-import { AMapSdk } from "react-native-amap3d";
+import { AMapSdk } from "@evnydd0sf/react-native-amap3d";
 import { Platform } from "react-native";
 
 AMapSdk.init(
@@ -61,7 +62,7 @@ AMapSdk.init(
 ### 显示地图
 
 ```jsx
-import { MapView, MapType } from "react-native-amap3d";
+import { MapView, MapType } from "@evnydd0sf/react-native-amap3d";
 
 <MapView
   mapType={MapType.Satellite}
@@ -75,12 +76,12 @@ import { MapView, MapType } from "react-native-amap3d";
 />;
 ```
 
-<img src=https://user-images.githubusercontent.com/1709072/140698774-bdbfee64-d403-4e49-9a85-716d44783cfd.png height=500> <img src=https://user-images.githubusercontent.com/1709072/140849895-dada3f51-74c0-4685-b5d6-c1b69a4d06bb.PNG height=500>
+<img src=<https://user-images.githubusercontent.com/1709072/140698774-bdbfee64-d403-4e49-9a85-716d44783cfd.png> height=500> <img src=<https://user-images.githubusercontent.com/1709072/140849895-dada3f51-74c0-4685-b5d6-c1b69a4d06bb.PNG> height=500>
 
 ### 监听地图事件
 
 ```jsx
-import { MapView } from "react-native-amap3d";
+import { MapView } from "@evnydd0sf/react-native-amap3d";
 
 <MapView
   onLoad={() => console.log("onLoad")}
@@ -89,7 +90,7 @@ import { MapView } from "react-native-amap3d";
 />;
 ```
 
-<img src=https://user-images.githubusercontent.com/1709072/140705501-9ed3e038-e52a-48c2-a98a-235c5c890549.png height=500> <img src=https://user-images.githubusercontent.com/1709072/140849894-3add3858-fc7f-47cd-9786-94aeef399ebc.PNG height=500>
+<img src=<https://user-images.githubusercontent.com/1709072/140705501-9ed3e038-e52a-48c2-a98a-235c5c890549.png> height=500> <img src=<https://user-images.githubusercontent.com/1709072/140849894-3add3858-fc7f-47cd-9786-94aeef399ebc.PNG> height=500>
 
 ### 添加标记
 
@@ -98,7 +99,7 @@ import { MapView } from "react-native-amap3d";
 同时支持 `children` 作为标记图标。
 
 ```jsx
-import { MapView, Marker } from "react-native-amap3d";
+import { MapView, Marker } from "@evnydd0sf/react-native-amap3d";
 
 <MapView>
   <Marker
@@ -130,14 +131,14 @@ import { MapView, Marker } from "react-native-amap3d";
 </MapView>;
 ```
 
-<img src=https://user-images.githubusercontent.com/1709072/140707579-4abe070a-3fc1-481d-8a2e-91ac2ad8bdc7.png height=500> <img src=https://user-images.githubusercontent.com/1709072/140849886-7eb9322b-8fa8-4049-a7b0-3eb36d006992.PNG height=500>
+<img src=<https://user-images.githubusercontent.com/1709072/140707579-4abe070a-3fc1-481d-8a2e-91ac2ad8bdc7.png> height=500> <img src=<https://user-images.githubusercontent.com/1709072/140849886-7eb9322b-8fa8-4049-a7b0-3eb36d006992.PNG> height=500>
 
 ### 点聚合
 
 Marker 数量过多（尤其是使用自定义 View 的情况下）会导致性能问题，而且显示过于密集，这时候可以用点聚合改善。
 
 ```jsx
-import { Cluster, MapView, Marker } from "react-native-amap3d";
+import { Cluster, MapView, Marker } from "@evnydd0sf/react-native-amap3d";
 
 const markers = Array(1000)
   .fill(0)
@@ -168,13 +169,13 @@ const markers = Array(1000)
 </MapView>;
 ```
 
-<img src=https://user-images.githubusercontent.com/1709072/140710764-40f767cd-74fd-47ca-8310-897bbf58fbbd.png height=500> <img src=https://user-images.githubusercontent.com/1709072/140849888-6b6609c1-2e55-41c2-bdc3-f9d3fcc7a112.PNG height=500>
+<img src=<https://user-images.githubusercontent.com/1709072/140710764-40f767cd-74fd-47ca-8310-897bbf58fbbd.png> height=500> <img src=<https://user-images.githubusercontent.com/1709072/140849888-6b6609c1-2e55-41c2-bdc3-f9d3fcc7a112.PNG> height=500>
 
-<img src=https://user-images.githubusercontent.com/1709072/140710758-63e81ade-2635-4412-a5fa-b6948605fe75.png height=500> <img src=https://user-images.githubusercontent.com/1709072/140849880-9eb7609d-55a7-43be-8b6a-bac725fb0a82.PNG height=500>
+<img src=<https://user-images.githubusercontent.com/1709072/140710758-63e81ade-2635-4412-a5fa-b6948605fe75.png> height=500> <img src=<https://user-images.githubusercontent.com/1709072/140849880-9eb7609d-55a7-43be-8b6a-bac725fb0a82.PNG> height=500>
 
 ### 更多示例
 
-参考 [example](https://github.com/qiuxiang/react-native-amap3d/tree/master/example-app)。
+参考 [example](https://github.com/evnydd0sf/react-native-amap3d/tree/master/example-app)。
 
 ## 常见问题
 
