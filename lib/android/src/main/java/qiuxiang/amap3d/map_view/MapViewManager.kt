@@ -27,7 +27,8 @@ internal class MapViewManager : ViewGroupManager<MapView>() {
 
   override fun onDropViewInstance(view: MapView) {
     super.onDropViewInstance(view)
-    view.onDestroy()
+    // Fix Unmount View Crash
+    // view.onDestroy()
   }
 
   override fun getCommandsMap(): Map<String, Int> {
